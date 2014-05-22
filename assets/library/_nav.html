@@ -1,0 +1,134 @@
+<script>
+	var manifest = null;
+	$(document).ready(function () {
+		$.getJSON('assets/library/_manifest.html', function (data) {
+			manifest = data;
+			sortAlphabetically();
+		});
+
+	});
+
+	function bindLinkedDocuments(data) {
+		$(data.presentation).each(function () {
+			$('#documents-list').html('');
+			$(this.linkedDocuments).each(function () {
+			    $('<li onclick="Framework_track(\'' + this.trackingPath + '\');" class="navigateHref" data-navtarget="' + this.assetPath + '/' + this.file +'"><div style="border:1px solid white; float:left; width: 206px;height: 118px;"><img src="media/images/thumbs/' + this.thumbnail + '" /></div><div style="width: 220px;margin-left: 225px;height:150px;"><p style="font-weight: bold;">' + this.title + '</p><p>Last updated: ' + this.lastUpdated + '</p></div></li>').appendTo('#documents-list');
+			})
+		})
+	}
+
+	function sortAlphabetically() {
+		if (manifest != null) {
+		    var linkedDocuments = manifest.presentation[0].linkedDocuments;
+		    linkedDocuments.sort(function (a,b) {
+		        return ( a.title < b.title ? -1 : ( a.title > b.title ? 1 : 0) );
+		    });
+
+			bindLinkedDocuments(manifest);
+
+			$("#alph-sort .sort-type").html('<img src="assets/library/img/u64_normal.png" style="float:right;margin: -3px 0px 0px 0px;"/>');
+			$("#upd-sort .sort-type").html('');
+		}
+	}
+
+	function sortByUpdates() {
+		if (manifest != null) {
+		    var linkedDocuments = manifest.presentation[0].linkedDocuments;
+		    linkedDocuments.sort(function (a, b) {
+		        var date_a = parseDate(a.lastUpdated);
+		        var date_b = parseDate(b.lastUpdated);
+		        return date_b - date_a;
+		    });
+			
+			bindLinkedDocuments(manifest);
+			$("#upd-sort .sort-type").html('<img src="assets/library/img/u64_normal.png" style="float:right;margin: -35px 30px 0px 0px;"/>');
+			$("#alph-sort .sort-type").html('');
+		}
+	}
+
+	function parseDate(dateString) {
+		var date = new Date();
+		if (dateString.length == 10) {
+			date = new Date(parseInt(dateString.substr(6, 4), 10), parseInt(dateString.substr(3, 2), 10) - 1, parseInt(dateString.substr(0, 2), 10))
+		} else {
+			date = NaN;
+		}
+
+		return date;
+	}
+	
+</script>
+
+<!-- Partial content goes here -->
+<div class="_nav">
+    <!-- Menu div -->
+	<div>
+		<ul class="nav_UL " style="float:left;">	
+			<li>
+				<ul class="nav_icons">
+					<li class="open-presentationLibrary nav_presLibrary_off"></li>
+					<li class="change-presentation nav_shortCall_off"></li>
+					<li class="open-bibliography nav_bibliography_off"></li>
+					<li class="open-associatedPDFs nav_associatedPDFs_off"></li>
+					<li class="open-voc nav_VOC_off"></li>
+				</ul>
+			</li>
+			<li class="nav_thumbnailSwitch">
+				<button class="nav_thumbnailSwitch_off nav-thumbnails"></button>
+			</li>
+            <div class="nav_menu">
+            <ul id="menu-items" style="list-style: none; padding: 0" >
+			</ul>
+                </div>
+		</ul>
+	</div>
+	
+</div>
+<!-- Bibliography -->
+	<div style="clear:both;"></div>
+	
+    <div class="bibliography inhibitNavigationSwipe">
+        <div class="title">
+        	<div class="bibliotext">
+        	</div>
+        	<button  class="closebutton open-bibliography ">
+        	</button>
+        </div>
+        <div class="bibliographyContent">
+
+        </div>
+	</div>
+    <!-- PDFs -->
+	<div class="supportingPDFs inhibitNavigationSwipe">
+        <div class="title">
+        	
+        	<div class="pdftext"></div>
+        	<button class="closebutton open-associatedPDFs ">
+        	</button>
+        </div>
+        <div class="supportingPdfContent">
+		    <p class="choice">Sort documents by:</p>
+		    <div class="supportingPdf_sortingBox">
+			    <div class="sortalph" onclick="sortAlphabetically();" id="alph-sort">
+				    <p class="sorttitle">
+					    Alphabetical (A-Z)
+				    </p>
+				    <p class="sort-type">
+					
+				    </p>	
+			    </div>
+			    <div class="sortupd" onclick="sortByUpdates();" id="upd-sort">
+				    <p class="sortright">
+					    Most Recently Updated
+				    </p>
+				    <p class="sort-type">
+				    </p>
+			    </div>
+		    </div>
+			    <ul id="documents-list">
+			
+			</ul>
+        </div>
+
+	</div>
+<!-- End of partial content goes here -->
