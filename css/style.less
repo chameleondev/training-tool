@@ -1,11 +1,296 @@
+
+// variables
+
 @revoladeRed : #c41230;
 @revoladeBlue : #4a2a94;
+@revoladeGrey : #707070;
 
-.redButton{
-	background: @revoladeRed;
-	color: #fff;
+
+// mixins
+
+.small-red{
+	width: 140px;
+	height: 45px;
+	font-size: 11px;
 }
 
-#but{
-	.redButton;
+.big-red{
+	width: 655px;
+	height: 65px;
+	border: solid 1px #fff;
+	text-align: left;
+	padding-left: 20px;
+	font-size: 20px;
+}
+
+.red-button(){
+	background: @revoladeRed;
+	color: #fff;
+	border: none;
+}
+
+
+.small-blue{
+	width: 140px;
+	height: 45px;
+	font-size: 11px;
+}
+
+.big-blue{
+	width: 340px;
+	height: 65px;
+	font-size: 20px;
+}
+
+.blue-chap{
+	height: 45px;
+	width: 50px;
+	position: absolute;
+}
+
+.blue-button(){
+	background-color: @revoladeBlue;
+	color: #fff;
+	border: none;
+}
+
+
+//fonts
+
+@font-face {
+  font-family: 'Helvetica-Bold';
+  src: url('../media/fonts/HelveticaNeueLTStd-BdCn.eot'); /* IE9 Compat Modes */
+  src: url('../media/fonts/HelveticaNeueLTStd-BdCn.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../media/fonts/HelveticaNeueLTStd-BdCn.woff') format('woff'), /* Modern Browsers */
+       url('../media/fonts/HelveticaNeueLTStd-BdCn.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../media/fonts/HelveticaNeueLTStd-BdCn.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Helvetica-Condensed';
+  src: url('../media/fonts/HelveticaNeueLTStd-LtCn.eot'); /* IE9 Compat Modes */
+  src: url('../media/fonts/HelveticaNeueLTStd-LtCn?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../media/fonts/HelveticaNeueLTStd-LtCn.woff') format('woff'), /* Modern Browsers */
+       url('../media/fonts/HelveticaNeueLTStd-LtCn.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../media/fonts/HelveticaNeueLTStd-LtCn.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+// styles
+
+
+body{
+	background: #4a4a4a;
+
+	div.greybar{
+		height: 20px;
+		width: 100%;
+		background: #4a4a4a;
+		position: absolute;
+		z-index: 10;
+	}
+}
+
+
+
+.body-container{
+	background: url(../media/images/swoosh_bg.png);
+	font-family: 'Helvetica-Condensed';
+
+	.home-slide{
+
+		.revolade-logo{
+			height: 96px;
+			width: 325px;
+			background: url(../media/images/revolade-logo.png);
+			position: absolute;
+			top: 85px;
+			right: 50px;
+		}
+
+		.slide-title{
+			margin-top: 30px;
+
+			div:first-child{
+				color: @revoladeRed;
+				font-size: 35px
+			}
+			div:nth-child(2){
+				color: @revoladeBlue;
+				font-size: 87px
+			}
+			div:nth-child(3){
+				color: @revoladeGrey;
+				font-size: 37px
+			}
+
+		}
+
+		.mod-title{
+			width: 655px;
+			margin-top: 60px;
+
+			button{
+				.red-button;
+				.big-red;
+				margin-top:25px;
+			}
+
+		}
+
+		.small-print{
+			font-size: 12px;
+			margin-top: 28px;
+			color: #555555;
+			
+			span{
+				color: @revoladeRed;
+			}
+
+		}
+
+		
+
+	}
+
+	.mod1-home-slide{
+
+		.nav{
+			.active{
+				background: lighten(@revoladeBlue, 25%)
+			}
+			.active:after{
+				border-top-color: lighten(@revoladeBlue, 25%);
+			}
+
+		}
+
+		.slide-title{
+			margin-top:70px;
+			color: @revoladeRed;
+
+			div:first-child{
+				font-size: 36px
+			}
+			div:nth-child(2){
+				font-size: 42px
+			}
+		}
+
+		button.big-blue{
+			margin-top: 335px;
+			font-size: 30px;
+			.blue-button;
+			.big-blue;
+		}
+	
+	}
+
+	.nav{
+		margin-top: 20px;
+		
+		.red{
+			.red-button;
+			.small-red;
+		}
+
+		.blue{
+			.blue-button;
+			.small-blue;
+		}
+
+		.prev-chap{
+			right: 160px;
+			top: 20px;
+			background-image: url(../media/images/prev-chap.png);
+			background-repeat: no-repeat;
+			background-position: 20px;
+			.blue-button;
+			.blue-chap;
+		}
+
+		.next-chap{
+			right: 100px;
+			top: 20px;
+			background-image: url(../media/images/next-chap.png);
+			background-repeat: no-repeat;
+			background-position: 20px;
+			.blue-button;
+			.blue-chap;
+		}
+	}
+
+	
+	.gsk-logo{
+		height: 57px;
+		width: 150px;
+		background: url(../media/images/gsk-logo.png);
+		position: absolute;
+		bottom: 70px;
+		right: 30px;
+	}
+
+	.wrapper{
+		height: 100%;
+		margin: 0 auto;
+		width: 880px;
+	}
+
+	.content-slide{
+		height: 100%;
+		width: 100%;
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	.arrow_box {
+	position: relative;
+	background: #492f92;
+	}
+
+	.arrow_box:after {
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(73, 47, 146, 0);
+		border-right-color: #492f92;
+		border-width: 5px;
+		margin: -5px 0 0 0;
+	}
+
+	.arrow_box:first-child:after{
+		top: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(73, 47, 146, 0);
+		border-top-color: #492f92;
+		border-width: 5px;
+		margin: 0 0 0 -5px;
+	}
+
+}
+
+
+.dynamic-content {
+
+	.mood-indicator-negative-blocked{
+		top:25px;		
+	}
+
+	.mood-indicator-positive-blocked{
+		top:25px;
+	}
+
+	.nav_bottom{
+		background-color: #4a4a4a;
+	}
 }
