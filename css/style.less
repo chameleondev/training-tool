@@ -8,10 +8,17 @@
 
 // mixins
 
+.red-button(){
+	background: @revoladeRed;
+	color: #fff;
+	border: none;
+}
+
 .small-red{
 	width: 140px;
 	height: 45px;
 	font-size: 11px;
+	.red-button;
 }
 
 .big-red{
@@ -21,38 +28,52 @@
 	text-align: left;
 	padding-left: 20px;
 	font-size: 20px;
+	.red-button;
 }
 
-.red-button(){
-	background: @revoladeRed;
-	color: #fff;
-	border: none;
-}
-
-
-.small-blue{
-	width: 140px;
-	height: 45px;
-	font-size: 11px;
-}
-
-.big-blue{
-	width: 340px;
-	height: 65px;
+.red-label{
+	width: 442px;
+	height: 68px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
 	font-size: 20px;
+	.red-button;
 }
 
-.blue-chap{
-	height: 45px;
-	width: 50px;
-	position: absolute;
-}
 
 .blue-button(){
 	background-color: @revoladeBlue;
 	color: #fff;
 	border: none;
 }
+
+.small-blue{
+	width: 140px;
+	height: 45px;
+	font-size: 11px;
+	.blue-button;
+}
+
+.big-blue{
+	width: 340px;
+	height: 65px;
+	font-size: 30px;
+	position: absolute;
+	left: 72px;
+	bottom: 118px;
+	.blue-button;
+}
+
+.blue-chap{
+	height: 45px;
+	width: 50px;
+	position: absolute;
+	.blue-button;
+}
+
+
+
 
 
 //fonts
@@ -96,6 +117,302 @@ body{
 .body-container{
 	background: url(../media/images/swoosh_bg.png);
 	font-family: 'Helvetica-Condensed';
+
+
+	.nav{
+		margin-top: 20px;
+		
+		.red{
+			.red-button;
+			.small-red;
+		}
+
+		.blue{
+			.small-blue;
+		}
+
+		.prev-chap{
+			right: 160px;
+			top: 20px;
+			background-image: url(../media/images/prev-chap.png);
+			background-repeat: no-repeat;
+			background-position: 20px;
+			.blue-chap;
+		}
+
+		.next-chap{
+			right: 100px;
+			top: 20px;
+			background-image: url(../media/images/next-chap.png);
+			background-repeat: no-repeat;
+			background-position: 20px;
+			.blue-chap;
+		}
+
+
+		.active{
+			background: lighten(@revoladeBlue, 25%)
+		}
+		.active:first-child:after{
+			border-top-color: lighten(@revoladeBlue, 25%);
+		}
+
+		
+	}
+
+	
+	.gsk-logo{
+		height: 57px;
+		width: 150px;
+		background: url(../media/images/gsk-logo.png);
+		position: absolute;
+		bottom: 70px;
+		right: 30px;
+	}
+
+	.wrapper{
+		height: 100%;
+		margin: 0 auto;
+		width: 880px;
+	}
+
+	.white-sheet{
+		height: 100%;
+		width: 100%;
+		background: rgba(255, 255, 255, 0.8);
+		float:left;
+	}
+
+	.arrow_box {
+	position: relative;
+	background: #492f92;
+	}
+
+	.arrow_box:after {
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(73, 47, 146, 0);
+		border-right-color: #492f92;
+		border-width: 5px;
+		margin: -5px 0 0 0;
+	}
+
+	.arrow_box:first-child:after{
+		top: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(73, 47, 146, 0);
+		border-top-color: #492f92;
+		border-width: 5px;
+		margin: 0 0 0 -5px;
+	}
+
+	.red-bar {
+		position: absolute;
+		width: 1024px;
+	}
+
+	.red-bar:after {
+	  content: "";
+	  position: absolute;
+	  bottom: -3px;
+	  left: -3px;
+	  
+	}
+
+	.red-bar:after {
+	  right: -3px;
+	  height: 4px;
+	  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@revoladeRed), to(transparent));
+	  background-image: -webkit-linear-gradient(left, @revoladeRed, transparent);
+	}
+
+	.chapter-header{
+		.red-bar{
+			top: 360px
+		}
+
+		.chapter-title{
+			float: left;
+			margin-top: 180px;
+
+			div{
+				float: left;
+			}
+
+			.chapter-num{
+				font-size: 111px;
+				color: @revoladeBlue;
+				line-height: 104px;
+			}
+
+			.title-1{
+				font-size: 54px;
+				color: @revoladeRed;
+			}
+
+			.title-2{
+				font-size: 36px;
+				color: @revoladeGrey;
+			}
+		}
+	}
+
+	.module-header{
+
+		.module-title{
+			color: @revoladeRed;
+			margin-top:70px;
+
+			.title-1{
+				font-size: 36px
+			}
+			.title-2{
+				font-size: 42px
+			}
+		}
+	}
+
+
+
+	.content-slide{
+		background: url(../media/images/content-slide-bg.png) no-repeat #fff;
+		background-position-y: 20px;
+		height: 768px;
+
+		.red-bar{
+			top: 135px;
+		}
+
+		.slide-title{
+			margin-top: 85px;
+			font-size: 38px;
+			color: @revoladeRed;
+			float: left;
+		}
+
+		.content{
+			float:left;
+			width: 100%;
+			margin-top: 25px;
+			font-size: 20px;
+
+			.content-left,.content-right{
+				width: 50%;
+				float:left;
+			}
+
+			.content-left{
+				li{
+					color: @revoladeBlue;
+					line-height: 30px;
+
+					span{
+						color: #000;
+					}
+
+					ul{
+						list-style: none;
+						padding-left: 25px;
+
+						li{
+							text-indent:-5px;
+							line-height: 25px;
+						}
+						
+						li:before{
+							content:"—";
+							position:relative; 
+							left:-5px;
+						}
+					}
+
+				}
+			}
+
+			.content-right{
+				img{
+					margin-top:5px;
+				}
+			}
+
+			table{
+				width: 100%;
+				border-collapse: collapse;
+				
+				tr:first-child{
+					height: 51px;
+					background: @revoladeRed;
+					color: #FFF;
+					font-size: 20px;
+				}
+
+				.odd{
+					background:lighten(@revoladeRed, 50%)
+				}
+
+				th{
+					text-align: left;
+					padding-left: 12px;
+					border-left: solid 1px @revoladeRed;
+					border-right: solid 1px @revoladeRed;
+				}
+
+				tr{
+					td:first-child{
+						color: @revoladeRed;
+					}
+
+					td{
+						padding: 12px;
+						border-left: solid 1px @revoladeRed;
+						border-right: solid 1px @revoladeRed;
+					}
+				}
+
+				
+			}
+
+			.references-button{
+				height:35px;
+				width:36px;
+				position: absolute;
+				top: 640px;
+				left: 10px;
+				background:url(../media/images/revolade_buttons_sprite.png);
+				background-position: -123px 108px;
+			}
+
+			.information-button{
+				height:35px;
+				width:36px;
+				position: absolute;
+				top: 640px;
+				right: 10px;
+				background:url(../media/images/revolade_buttons_sprite.png);
+				background-position: -172px 108px;
+			}
+
+		}
+	}
+
+	
+
+	
+
+
+	//slides
 
 	.home-slide{
 
@@ -153,129 +470,6 @@ body{
 
 	}
 
-	.mod1-home-slide{
-
-		.nav{
-			.active{
-				background: lighten(@revoladeBlue, 25%)
-			}
-			.active:after{
-				border-top-color: lighten(@revoladeBlue, 25%);
-			}
-
-		}
-
-		.slide-title{
-			margin-top:70px;
-			color: @revoladeRed;
-
-			div:first-child{
-				font-size: 36px
-			}
-			div:nth-child(2){
-				font-size: 42px
-			}
-		}
-
-		button.big-blue{
-			margin-top: 335px;
-			font-size: 30px;
-			.blue-button;
-			.big-blue;
-		}
-	
-	}
-
-	.nav{
-		margin-top: 20px;
-		
-		.red{
-			.red-button;
-			.small-red;
-		}
-
-		.blue{
-			.blue-button;
-			.small-blue;
-		}
-
-		.prev-chap{
-			right: 160px;
-			top: 20px;
-			background-image: url(../media/images/prev-chap.png);
-			background-repeat: no-repeat;
-			background-position: 20px;
-			.blue-button;
-			.blue-chap;
-		}
-
-		.next-chap{
-			right: 100px;
-			top: 20px;
-			background-image: url(../media/images/next-chap.png);
-			background-repeat: no-repeat;
-			background-position: 20px;
-			.blue-button;
-			.blue-chap;
-		}
-	}
-
-	
-	.gsk-logo{
-		height: 57px;
-		width: 150px;
-		background: url(../media/images/gsk-logo.png);
-		position: absolute;
-		bottom: 70px;
-		right: 30px;
-	}
-
-	.wrapper{
-		height: 100%;
-		margin: 0 auto;
-		width: 880px;
-	}
-
-	.content-slide{
-		height: 100%;
-		width: 100%;
-		background: rgba(255, 255, 255, 0.5);
-	}
-
-	.arrow_box {
-	position: relative;
-	background: #492f92;
-	}
-
-	.arrow_box:after {
-		right: 100%;
-		top: 50%;
-		border: solid transparent;
-		content: " ";
-		height: 0;
-		width: 0;
-		position: absolute;
-		pointer-events: none;
-		border-color: rgba(73, 47, 146, 0);
-		border-right-color: #492f92;
-		border-width: 5px;
-		margin: -5px 0 0 0;
-	}
-
-	.arrow_box:first-child:after{
-		top: 100%;
-		left: 50%;
-		border: solid transparent;
-		content: " ";
-		height: 0;
-		width: 0;
-		position: absolute;
-		pointer-events: none;
-		border-color: rgba(73, 47, 146, 0);
-		border-top-color: #492f92;
-		border-width: 5px;
-		margin: 0 0 0 -5px;
-	}
 
 }
 
