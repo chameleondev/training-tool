@@ -11,13 +11,14 @@
 .red-button(){
 	background: @revoladeRed;
 	color: #fff;
-	border: none;
+	font-family: 'Helvetica-Condensed';
 }
 
 .small-red{
 	width: 140px;
 	height: 45px;
-	font-size: 11px;
+	font-size: 15px;
+	border: none;
 	.red-button;
 }
 
@@ -46,12 +47,13 @@
 	background-color: @revoladeBlue;
 	color: #fff;
 	border: none;
+	font-family: 'Helvetica-Condensed';
 }
 
 .small-blue{
 	width: 140px;
 	height: 45px;
-	font-size: 11px;
+	font-size: 15px;
 	.blue-button;
 }
 
@@ -73,6 +75,16 @@
 }
 
 
+.blue-label{
+	width: 442px;
+	height: 68px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 20px;
+	.blue-button;
+}
+
 
 
 
@@ -84,7 +96,7 @@
   src: url('../media/fonts/HelveticaNeueLTStd-BdCn.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('../media/fonts/HelveticaNeueLTStd-BdCn.woff') format('woff'), /* Modern Browsers */
        url('../media/fonts/HelveticaNeueLTStd-BdCn.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../media/fonts/HelveticaNeueLTStd-BdCn.svg#svgFontName') format('svg'); /* Legacy iOS */
+       url('../media/fonts/HelveticaNeueLTStd-BdCn.svg#Helvetica-Condensed') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
@@ -93,7 +105,7 @@
   src: url('../media/fonts/HelveticaNeueLTStd-LtCn?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('../media/fonts/HelveticaNeueLTStd-LtCn.woff') format('woff'), /* Modern Browsers */
        url('../media/fonts/HelveticaNeueLTStd-LtCn.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../media/fonts/HelveticaNeueLTStd-LtCn.svg#svgFontName') format('svg'); /* Legacy iOS */
+       url('../media/fonts/HelveticaNeueLTStd-LtCn.svg#Helvetica-Condensed') format('svg'); /* Legacy iOS */
 }
 
 
@@ -218,28 +230,32 @@ body{
 		margin: 0 0 0 -5px;
 	}
 
-	.red-bar {
-		position: absolute;
+	.title-bar {
+		position: relative;
 		width: 1024px;
 	}
 
-	.red-bar:after {
+	.title-bar:after {
 	  content: "";
 	  position: absolute;
 	  bottom: -3px;
 	  left: -3px;
-	  
-	}
-
-	.red-bar:after {
 	  right: -3px;
 	  height: 4px;
+	}
+
+	.title-bar.blue:after {
+	  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@revoladeBlue), to(transparent));
+	  background-image: -webkit-linear-gradient(left, @revoladeBlue, transparent);
+	}
+
+	.title-bar.red:after {
 	  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@revoladeRed), to(transparent));
 	  background-image: -webkit-linear-gradient(left, @revoladeRed, transparent);
 	}
 
 	.chapter-header{
-		.red-bar{
+		.title-bar{
 			top: 360px
 		}
 
@@ -267,6 +283,19 @@ body{
 				color: @revoladeGrey;
 			}
 		}
+
+		.two-line{
+			.title-1{
+				position: absolute;
+				left: 214px;
+				bottom: 430px;
+			}
+			.title-2{
+				position: absolute;
+				bottom: 389px;
+				left: 214px;
+			}
+		}
 	}
 
 	.module-header{
@@ -291,61 +320,78 @@ body{
 		background-position-y: 20px;
 		height: 768px;
 
-		.red-bar{
+		.title-bar{
 			top: 135px;
 		}
 
 		.slide-title{
 			margin-top: 85px;
 			font-size: 38px;
-			color: @revoladeRed;
 			float: left;
 		}
 
-		.content{
+		.slide-title.two-line{
+			margin-top: 45px;
+		}
+
+		.slide-title.red{
+			color: @revoladeRed;
+		}
+
+		.slide-title.blue{
+			color: @revoladeBlue;
+		}
+
+		.content-container{
 			float:left;
 			width: 100%;
 			margin-top: 25px;
 			font-size: 20px;
 
-			.content-left,.content-right{
-				width: 50%;
-				float:left;
-			}
-
 			.content-left{
-				li{
-					color: @revoladeBlue;
-					line-height: 30px;
-
-					span{
-						color: #000;
-					}
-
-					ul{
-						list-style: none;
-						padding-left: 25px;
-
-						li{
-							text-indent:-5px;
-							line-height: 25px;
-						}
-						
-						li:before{
-							content:"—";
-							position:relative; 
-							left:-5px;
-						}
-					}
-
-				}
+				width: 49%;
+				float:left;
+				padding-right: 1%;
 			}
 
 			.content-right{
+				width: 50%;
+				float:left;
+
 				img{
 					margin-top:5px;
+					width: 100%;
 				}
 			}
+
+			
+			li{
+				color: @revoladeBlue;
+				line-height: 30px;
+
+				span{
+					color: #000;
+				}
+
+				ul{
+					list-style: none;
+					padding-left: 25px;
+
+					li{
+						text-indent:-5px;
+						line-height: 25px;
+					}
+					
+					li:before{
+						content:"—";
+						position:relative; 
+						left:-5px;
+					}
+				}
+
+			}
+			
+
 
 			table{
 				width: 100%;
@@ -353,13 +399,8 @@ body{
 				
 				tr:first-child{
 					height: 51px;
-					background: @revoladeRed;
 					color: #FFF;
 					font-size: 20px;
-				}
-
-				.odd{
-					background:lighten(@revoladeRed, 50%)
 				}
 
 				th{
@@ -370,9 +411,6 @@ body{
 				}
 
 				tr{
-					td:first-child{
-						color: @revoladeRed;
-					}
 
 					td{
 						padding: 12px;
@@ -384,33 +422,79 @@ body{
 				
 			}
 
-			.references-button{
-				height:35px;
-				width:36px;
-				position: absolute;
-				top: 640px;
-				left: 10px;
-				background:url(../media/images/revolade_buttons_sprite.png);
-				background-position: -123px 108px;
+			table.wide{
+				th{
+					text-align: center;
+				}
+				img{
+					width: 860px;
+				}
 			}
 
-			.information-button{
-				height:35px;
-				width:36px;
-				position: absolute;
-				top: 640px;
-				right: 10px;
-				background:url(../media/images/revolade_buttons_sprite.png);
-				background-position: -172px 108px;
+			table.red{
+				tr:first-child{
+					background: @revoladeRed;
+				}
+				th{
+					border-left: solid 1px @revoladeRed;
+					border-right: solid 1px @revoladeRed;
+				}
+				td{
+					border-left: solid 1px @revoladeRed;
+					border-right: solid 1px @revoladeRed;
+				}
+				td:first-child{
+					color: @revoladeRed;
+				}
+				.odd{
+					background:lighten(@revoladeRed, 50%)
+				}
 			}
 
+			table.blue{
+				tr:first-child{
+					background: @revoladeBlue;
+				}
+				th{
+					border-left: solid 1px @revoladeBlue;
+					border-right: solid 1px @revoladeBlue;
+				}
+				td{
+					border-left: solid 1px @revoladeBlue;
+					border-right: solid 1px @revoladeBlue;
+				}
+				td:first-child{
+					color: @revoladeBlue;
+				}
+				.odd{
+					background:lighten(@revoladeBlue, 50%)
+				}
+			}
+
+		}
+
+		.references-button{
+			height:35px;
+			width:36px;
+			position: absolute;
+			top: 640px;
+			left: 10px;
+			background:url(../media/images/revolade_buttons_sprite.png);
+			background-position: -123px 108px;
+		}
+
+		.information-button{
+			height:35px;
+			width:36px;
+			position: absolute;
+			top: 640px;
+			right: 10px;
+			background:url(../media/images/revolade_buttons_sprite.png);
+			background-position: -172px 108px;
 		}
 	}
 
 	
-
-	
-
 
 	//slides
 
