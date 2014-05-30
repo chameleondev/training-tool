@@ -64,6 +64,7 @@
 	position: absolute;
 	left: 72px;
 	bottom: 118px;
+	background: @revoladeBlue;
 	.blue-button;
 }
 
@@ -114,6 +115,7 @@
 
 body{
 	background: #4a4a4a;
+	font-family: 'Helvetica-Condensed';
 
 	div.greybar{
 		height: 20px;
@@ -124,12 +126,37 @@ body{
 	}
 }
 
+li{
+	color: @revoladeBlue;
+	line-height: 30px;
+
+	span{
+		color: #000;
+	}
+
+	ul{
+		list-style: none;
+		padding-left: 25px;
+
+		li{
+			text-indent:-5px;
+			line-height: 25px;
+		}
+		
+		li:before{
+			content:"—";
+			position:relative; 
+			left:-5px;
+		}
+	}
+
+}
+
 
 
 .body-container{
 	background: url(../media/images/swoosh_bg.png);
 	font-family: 'Helvetica-Condensed';
-
 
 	.nav{
 		margin-top: 20px;
@@ -315,6 +342,8 @@ body{
 
 
 
+
+
 	.content-slide{
 		background: url(../media/images/content-slide-bg.png) no-repeat #fff;
 		background-position-y: 20px;
@@ -351,12 +380,13 @@ body{
 			.content-left{
 				width: 49%;
 				float:left;
-				padding-right: 1%;
+				padding-right: 0.5%;
 			}
 
 			.content-right{
-				width: 50%;
+				width: 49%;
 				float:left;
+				padding-left: 0.5%;
 
 				img{
 					margin-top:5px;
@@ -364,32 +394,6 @@ body{
 				}
 			}
 
-			
-			li{
-				color: @revoladeBlue;
-				line-height: 30px;
-
-				span{
-					color: #000;
-				}
-
-				ul{
-					list-style: none;
-					padding-left: 25px;
-
-					li{
-						text-indent:-5px;
-						line-height: 25px;
-					}
-					
-					li:before{
-						content:"—";
-						position:relative; 
-						left:-5px;
-					}
-				}
-
-			}
 			
 
 
@@ -469,6 +473,10 @@ body{
 				.odd{
 					background:lighten(@revoladeBlue, 50%)
 				}
+			}
+
+			table.small{
+				font-size: 14px;
 			}
 
 		}

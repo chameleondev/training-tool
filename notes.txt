@@ -4,3 +4,13 @@ figures - do i have to copy and paste from presentation, are there any assets?
 
 need to be able to get all sizes out of psd
 
+
+where does the small text go, some are under pictures, some span accross whole width
+
+
+
+*** FOR BIG PINK ***
+
+is there anything that indicates that the slide is active (addInView function)
+
+is there an out of view function?
