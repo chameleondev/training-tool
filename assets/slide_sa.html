@@ -34,7 +34,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="one">SUBMIT</button>
 				        	
 				        </div>
 
@@ -58,7 +58,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="two">SUBMIT</button>
 
 				        </div>
 
@@ -82,7 +82,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="three">SUBMIT</button>
 
 				        </div>
 
@@ -105,7 +105,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="four">SUBMIT</button>
 
 				        </div>
 
@@ -128,7 +128,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="five">SUBMIT</button>
 
 				        </div>
 
@@ -151,7 +151,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="six">SUBMIT</button>
 
 				        </div>
 
@@ -174,7 +174,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="seven">SUBMIT</button>
 
 				        </div>
 
@@ -197,7 +197,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="eight">SUBMIT</button>
 
 				        </div>
 
@@ -220,7 +220,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="nine">SUBMIT</button>
 
 				        </div>
 
@@ -243,7 +243,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="ten">SUBMIT</button>
 
 				        </div>
 
@@ -267,7 +267,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="eleven">SUBMIT</button>
 
 				        </div>
 
@@ -291,7 +291,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="twelve">SUBMIT</button>
 
 				        </div>
 
@@ -315,7 +315,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="thirteen">SUBMIT</button>
 
 				        </div>
 
@@ -339,7 +339,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="fourteen">SUBMIT</button>
 
 				        </div>
 
@@ -363,7 +363,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="fifteen">SUBMIT</button>
 
 				        </div>
 
@@ -387,7 +387,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="sixteen">SUBMIT</button>
 
 				        </div>
 
@@ -411,7 +411,7 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="seventeen">SUBMIT</button>
 
 				        </div>
 
@@ -435,15 +435,26 @@
 
 				        	</div>
 
-				        	<button class="submit blue-button">SUBMIT</button>
+				        	<button class="submit blue-button" data-question="eighteen">SUBMIT</button>
 
-				        	<div class="question-overlay">
-				        		
-								<div>
-									
-								</div>
+				        	
+
+				        </div>
+
+				         <div>
+				        	
+							<div class="summary-section">
+				        		<h2>Summary</h2>
+
+					        	<p>you scored <span></span> out of 18</p>
+
+					        	<ul></ul>
 
 				        	</div>
+
+				        	<button class="submit blue-button">RETAKE ASSESSMENT</button>
+				        	<button class="submit blue-button">RESTART MODULE</button>
+				        	
 
 				        </div>
 
@@ -461,6 +472,7 @@
 </div>
 <script>
 	addInviewFunction(function () { 
+
         $('.question button').on('click tap',function(){
 
         	$(this).parent().children().removeClass('active');
@@ -469,14 +481,55 @@
   
         });
 
+        // $("div[data-index='18']").watch('-webkit-transform',function(){
+        	
+        	
+
+        // 		alert('HOORAY!');
+
+        	
+
+        // });
+
+        watch("div[data-index='18']", 'webkitTransform', function(){
+        	alert('HOORAY')
+		    // console.log(this.style.w, this.style.height);
+		 });
+
+         window.questions = {};
+
+         window.score = 0;
+
         $('.submit').on('click tap',function(){
+
+
+        	var questionNo = $(this).attr('data-question');	
 
         	var correct = $(this).prev().find('.answers').find('.active').hasClass('correct');
 
+
         	if(correct){
-        		alert('correct!')
+        		questions[questionNo] = 'Correct';
+        	}else{
+        		questions[questionNo] = 'Incorrect';	
         	}
+
+
   
         });
+
+        for(key in questions){
+        	var val = questions[key];
+
+        	var li = $('.summary-section ul').append('<li>Question '+key+': '+val+'</li>');
+
+        	if (val === 'Correct') {
+        		score++
+        	};
+
+        	$('.summary-section span').html(score);
+        }
+
+        
     });
 </script>
