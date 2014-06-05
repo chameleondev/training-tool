@@ -87,7 +87,9 @@
 }
 
 
-
+.mood-indicator-negative-blocked,.mood-indicator-positive-blocked{
+	display: none;
+}
 
 //fonts
 
@@ -111,6 +113,26 @@
 
 
 // styles
+
+.slidebottom #menu{
+	background: url(../media/images/revolade_buttons_sprite.png) -25px 52px;
+}
+
+li#startcall{
+	background: url(../media/images/revolade_buttons_sprite.png) -109px 52px;
+}
+
+li#PI{
+	background: url(../media/images/revolade_buttons_sprite.png) -158px 52px;
+}
+
+li#home{
+	background: url(../media/images/revolade_buttons_sprite.png) -207px 52px;
+}
+
+li#savecall{
+	background: url(../media/images/revolade_buttons_sprite.png) -254px 52px;
+}
 
 .ui-dialog{
 		border: solid 5px #4a4a4a;
@@ -146,6 +168,32 @@
 
 		ul{
 			padding-right: 15px;
+		}
+
+		li{
+			color: @revoladeBlue;
+			line-height: 30px;
+
+			span{
+				color: #000;
+			}
+
+			ul{
+				list-style: none;
+				padding-left: 25px;
+
+				li{
+					text-indent:-5px;
+					line-height: 25px;
+				}
+				
+				li:before{
+					content:"—";
+					position:relative; 
+					left:-5px;
+				}
+			}
+
 		}
 
 		.ui-dialog-titlebar{
@@ -186,31 +234,7 @@ body{
 	}
 }
 
-li{
-	color: @revoladeBlue;
-	line-height: 30px;
 
-	span{
-		color: #000;
-	}
-
-	ul{
-		list-style: none;
-		padding-left: 25px;
-
-		li{
-			text-indent:-5px;
-			line-height: 25px;
-		}
-		
-		li:before{
-			content:"—";
-			position:relative; 
-			left:-5px;
-		}
-	}
-
-}
 
 
 
@@ -257,6 +281,32 @@ li{
 		}
 
 		
+	}
+
+	li{
+		color: @revoladeBlue;
+		line-height: 30px;
+
+		span{
+			color: #000;
+		}
+
+		ul{
+			list-style: none;
+			padding-left: 25px;
+
+			li{
+				text-indent:-5px;
+				line-height: 25px;
+			}
+			
+			li:before{
+				content:"—";
+				position:relative; 
+				left:-5px;
+			}
+		}
+
 	}
 
 	
@@ -409,10 +459,38 @@ li{
 		}
 	}
 
+	.swipe-prev{
+		height: 45px;
+		width: 34px;
+		position: absolute;
+		top: 388px;
+		left: 85px;
+		background: url(../media/images/revolade_buttons_sprite.png);
+		background-position: -322px 54px;
+		border: none;
+	}
 
+	.swipe-next{
+		height: 45px;
+		width: 34px;
+		position: absolute;
+		top: 388px;
+		right: 85px;
+		background: url(../media/images/revolade_buttons_sprite.png);
+		background-position: -372px 54px;
+		border: none;
+	}
 
+	.small-print{
+		font-size: 12px;
+		color: #555555;
+		clear: both;
+		
+		span{
+			color: @revoladeRed;
+		}
 
-
+	}
 
 
 
@@ -558,6 +636,12 @@ li{
 				font-family: 'Helvetica-Bold';
 				color: @revoladeRed;
 			}
+			.swipe-next{
+				right: 20px;
+			}
+			.swipe-prev{
+				left: 20px;
+			}
 		}
 
 		.references-button{
@@ -617,22 +701,12 @@ li{
 		.mod-title{
 			width: 655px;
 			margin-top: 60px;
+			margin-bottom: 28px;
 
 			button{
 				.red-button;
 				.big-red;
 				margin-top:25px;
-			}
-
-		}
-
-		.small-print{
-			font-size: 12px;
-			margin-top: 28px;
-			color: #555555;
-			
-			span{
-				color: @revoladeRed;
 			}
 
 		}
@@ -690,27 +764,7 @@ li{
 			font-size: 16px;
 		}
 
-		.swipe-prev{
-			height: 45px;
-			width: 34px;
-			position: absolute;
-			top: 388px;
-			left: 85px;
-			background: url(http://localhost/revolade/media/images/revolade_buttons_sprite.png);
-			background-position: -322px 54px;
-			border: none;
-		}
-
-		.swipe-next{
-			height: 45px;
-			width: 34px;
-			position: absolute;
-			top: 388px;
-			right: 85px;
-			background: url(http://localhost/revolade/media/images/revolade_buttons_sprite.png);
-			background-position: -372px 54px;
-			border: none;
-		}
+		
 
 		.question-overlay{
 			height: 100%;
