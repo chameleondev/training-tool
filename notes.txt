@@ -14,3 +14,23 @@ where does the small text go, some are under pictures, some span accross whole w
 is there anything that indicates that the slide is active (addInView function)
 
 is there an out of view function?
+
+can you have a popup automatically opened?
+
+how do the pdfs open, do you return to the slide you were on?
+
+
+
+*****************************
+
+questionnaire
+
+click show results
+
+	you scored (num) out of 18 
+	
+	which questions are right, which are wrong
+
+
+
+

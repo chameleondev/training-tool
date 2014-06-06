@@ -38,13 +38,13 @@
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
-	font-size: 20px;
+	font-size: 18px;
 	.red-button;
 }
 
 
 .blue-button{
-	background-color: @revoladeBlue;
+	background: @revoladeBlue;
 	color: #fff;
 	border: none;
 	font-family: 'Helvetica-Condensed';
@@ -113,6 +113,8 @@
 
 
 // styles
+
+button:focus {outline:0;}
 
 .slidebottom #menu{
 	background: url(../media/images/revolade_buttons_sprite.png) -25px 52px;
@@ -492,6 +494,14 @@ body{
 
 	}
 
+	.disable-sa{
+		position: absolute;
+		height: 520px;
+		width: 770px;
+		z-index: 200;
+		left: 130px;
+	}
+
 
 
 	.content-slide{
@@ -612,6 +622,7 @@ body{
 				th{
 					border-left: solid 1px @revoladeBlue;
 					border-right: solid 1px @revoladeBlue;
+					vertical-align: middle;
 				}
 				td{
 					border-left: solid 1px @revoladeBlue;
@@ -758,9 +769,9 @@ body{
 		.submit{
 			width: 180px;
 			height: 45px;
-			float: right;
-			margin-right: 15px;
-			margin-top: 15px;
+			// float: right;
+			// margin-right: 15px;
+			// margin-top: 15px;
 			font-size: 16px;
 		}
 
@@ -791,6 +802,31 @@ body{
 			.incorrect{
 				color: red;
 			}
+		}
+
+		.summary-section{
+
+			.mod-results{
+				display: none;
+			}
+
+			ul{
+				list-style:none;
+				float: left;
+
+				li{
+					color: #000;
+				}
+
+				span.correct{
+					color: green
+				}
+
+				span.incorrect{
+					color: red;
+				}
+			}
+			
 		}
 
 	}
