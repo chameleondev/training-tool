@@ -44,7 +44,7 @@
 
 
 .blue-button{
-	background: @revoladeBlue;
+	background-color: @revoladeBlue;
 	color: #fff;
 	border: none;
 	font-family: 'Helvetica-Condensed';
@@ -174,7 +174,8 @@ li#savecall{
 
 		li{
 			color: @revoladeBlue;
-			line-height: 30px;
+			line-height: 25px;
+			// margin-bottom: 10px;
 
 			span{
 				color: #000;
@@ -285,6 +286,30 @@ body{
 		
 	}
 
+	.vertical-nav{
+		position: absolute;
+
+		ul{
+			list-style: none;
+			position: absolute;
+			left: 865px;
+			top: 550px;
+
+			li{
+				height: 15px;
+				width: 15px;
+				border-radius: 50%;
+				background: white;
+				border: solid 1px @revoladeBlue;
+				margin-bottom: 5px;
+			}
+
+			li.active{
+				background: @revoladeRed;
+			}
+		}
+	}
+
 	li{
 		color: @revoladeBlue;
 		line-height: 30px;
@@ -298,12 +323,12 @@ body{
 			padding-left: 25px;
 
 			li{
-				text-indent:-5px;
+				text-indent:-18px;
 				line-height: 25px;
 			}
 			
 			li:before{
-				content:"—";
+				content:"–";
 				position:relative; 
 				left:-5px;
 			}
@@ -773,6 +798,7 @@ body{
 			// margin-right: 15px;
 			// margin-top: 15px;
 			font-size: 16px;
+			background: @revoladeBlue;
 		}
 
 		

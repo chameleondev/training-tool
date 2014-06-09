@@ -459,6 +459,9 @@
 						        	<ul>
 						        		
 						        	</ul>
+						        	<ul>
+						        		
+						        	</ul>
 					        	</div>
 
 				        	</div>
@@ -503,9 +506,9 @@
 
 
 
-         window.questions = {};
+         var questions = {};
 
-         window.score = '0';
+         var score = '0';
 
          $('.disable-sa').on('click tap',function(event){
          	console.log(event);
@@ -532,24 +535,37 @@
 		
 		$('.summary-section-1 .show-results').on('click tap',function(){
 			console.log('show results');
-
+			var count = 0;
 			for(key in questions){
 	        	var val = questions[key];
-
+	        	count++;
 	        	// $('.summary-section ul').append('<li>Question '+key+': '+val+'</li>');
 
-	        	if (val === 'Correct') {
-	        		score++;
-	        		$('.summary-section ul').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+	        	if(count < 10){
+	        		if (val === 'Correct') {
+		        		score++;
+		        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+		        	}else{
+		        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
+		        	};
 	        	}else{
-	        		$('.summary-section ul').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
-	        	};
+	        		if (val === 'Correct') {
+		        		score++;
+		        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+		        	}else{
+		        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
+		        	};
+	        	}
+
+	        	
 
 	        }
 
 	        $('.summary-section p span').html(score);
 
-	        $('.mod-results').fadeIn();  
+	        $('.mod-results').fadeIn(); 
+
+	        $('.question .answers button').attr('disabled','true'); 
 
 		});
 
