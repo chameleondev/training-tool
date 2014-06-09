@@ -45,7 +45,7 @@
 							<div class="question">
 				        		<h2>Question 2</h2>
 
-					        	<p>Which of the following statements about erythrocytes is not true?</p>
+					        	<p>Which of the following statements about erythrocytes is <i>not</i> true?</p>
 
 					        	<div class="answers" data-question="two">
 					        		<button class="answer">A. Their biconcave shape allows travel through narrow capillaries</button>
@@ -184,7 +184,7 @@
 							<div class="question">
 				        		<h2>Question 8</h2>
 
-					        	<p>Which of the following is not true?</p>
+					        	<p>Which of the following is <i>not</i> true?</p>
 
 					        	<div class="answers" data-question="eight">
 					        		<button class="answer correct">A. Myelopoiesis is the process of monocyte generation</button>
@@ -535,37 +535,43 @@
 		
 		$('.summary-section-1 .show-results').on('click tap',function(){
 			console.log('show results');
-			var count = 0;
-			for(key in questions){
-	        	var val = questions[key];
-	        	count++;
-	        	// $('.summary-section ul').append('<li>Question '+key+': '+val+'</li>');
 
-	        	if(count < 10){
-	        		if (val === 'Correct') {
-		        		score++;
-		        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+			if($('.summary-section ul li').length=== 0){
+
+				var count = 0;
+				for(key in questions){
+		        	var val = questions[key];
+		        	count++;
+		        	// $('.summary-section ul').append('<li>Question '+key+': '+val+'</li>');
+
+		        	if(count < 10){
+		        		if (val === 'Correct') {
+			        		score++;
+			        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+			        	}else{
+			        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
+			        	};
 		        	}else{
-		        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
-		        	};
-	        	}else{
-	        		if (val === 'Correct') {
-		        		score++;
-		        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
-		        	}else{
-		        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
-		        	};
-	        	}
+		        		if (val === 'Correct') {
+			        		score++;
+			        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+			        	}else{
+			        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
+			        	};
+		        	}
 
-	        	
+		        	
 
-	        }
+		        }
 
-	        $('.summary-section p span').html(score);
+		        $('.summary-section p span').html(score);
 
-	        $('.mod-results').fadeIn(); 
+		        $('.mod-results').fadeIn(); 
 
-	        $('.question .answers button').attr('disabled','true'); 
+		        $('.question .answers button').attr('disabled','true'); 
+
+			}
+			
 
 		});
 
