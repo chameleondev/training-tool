@@ -115,6 +115,7 @@
 // styles
 
 button:focus {outline:0;}
+sup,sub{line-height: 0}
 
 .slidebottom #menu{
 	background: url(../media/images/revolade_buttons_sprite.png) -25px 52px;
@@ -192,7 +193,7 @@ li#savecall{
 
 
 				li{
-					text-indent:-18px;
+					// text-indent:-18px;
 					line-height: 25px;
 				}
 				
@@ -212,7 +213,7 @@ li#savecall{
 				background: #492894;
 				width: 180px;
 				position: absolute;
-				top: 321px;
+				top: 441px;
 				left: 420px;
 				font-family: 'Helvetica-Condensed';
 			}
@@ -454,14 +455,14 @@ body{
 				font-size: 54px;
 				color: @revoladeRed;
 				position: relative;
-				bottom: 9px;
+				bottom: 18px;
 			}
 
 			.title-2{
 				font-size: 36px;
 				color: @revoladeGrey;
 				position: relative;
-				bottom: 9px;
+				bottom: 18px;
 			}
 		}
 
@@ -526,7 +527,7 @@ body{
 	.small-print{
 		font-size: 12px;
 		color: #555555;
-		clear: both;
+		// clear: both;
 		
 		span{
 			color: @revoladeRed;
@@ -542,7 +543,9 @@ body{
 		left: 130px;
 	}
 
-
+	.content-slide .content-container > ul > li{
+		margin-bottom: 10px;
+	}
 
 	.content-slide{
 		background: url(../media/images/content-slide-bg.png) no-repeat #fff;
@@ -591,6 +594,8 @@ body{
 				width: 49%;
 				float:left;
 				padding-left: 0.5%;
+				margin-bottom:0;
+				overflow: hidden;
 
 				img{
 					margin-top:5px;
