@@ -456,12 +456,20 @@
 					        	<div class="mod-results">
 					        		<p>you scored <span></span> out of 18</p>
 
-						        	<ul>
+						        	<!-- <ul>
 						        		
 						        	</ul>
 						        	<ul>
 						        		
-						        	</ul>
+						        	</ul> -->
+
+						        	<div class="results-table">
+						        		
+										<table>
+											
+										</table>
+
+						        	</div>
 					        	</div>
 
 				        	</div>
@@ -496,75 +504,93 @@
 
         	var correct = $(this).hasClass('correct');
 
+        	// for question no : correct or incorrect inside ul
+
+        	// if(correct){
+        	// 	questions[questionNo] = 'Correct';
+        	// }else{
+        	// 	questions[questionNo] = 'Incorrect';	
+        	// }
+
+        	//for question correct or incorrect inside table
+
         	if(correct){
-        		questions[questionNo] = 'Correct';
+        		questions[questionNo] = {};
+        		questions[questionNo].status = 'Correct';
+        		questions[questionNo].question = $(this).parent().prev().html();
+
         	}else{
-        		questions[questionNo] = 'Incorrect';	
+        		questions[questionNo] = {};
+        		questions[questionNo].status = 'Inorrect';
+        		questions[questionNo].question = $(this).parent().prev().html();	
         	}
   
         });
 
 
 
-         var questions = {};
+        var questions = {};
 
-         var score = '0';
-
-         $('.disable-sa').on('click tap',function(event){
-         	console.log(event);
-         	console.log($(this));
-         })
-
-        // $('.submit').on('click tap',function(){
-
-        // 	var questionNo = $(this).attr('data-question');	
-
-        // 	var correct = $(this).prev().find('.answers').find('.active').hasClass('correct');
-
-
-        // 	if(correct){
-        // 		questions[questionNo] = 'Correct';
-        // 	}else{
-        // 		questions[questionNo] = 'Incorrect';	
-        // 	}
-
-
-  
-        // });
+        var score = '0';
 
 		
 		$('.summary-section-1 .show-results').on('click tap',function(){
 			console.log('show results');
 
-			if($('.summary-section ul li').length=== 0){
+		// for question no : correct or incorrect inside ul
+			// if($('.summary-section ul li').length=== 0){
 
-				var count = 0;
-				for(key in questions){
-		        	var val = questions[key];
-		        	count++;
-		        	// $('.summary-section ul').append('<li>Question '+key+': '+val+'</li>');
+			// 	var count = 0;
+			// 	for(key in questions){
+		 //        	var val = questions[key];
+		 //        	count++;
+		 //        	// $('.summary-section ul').append('<li>Question '+key+': '+val+'</li>');
 
-		        	if(count < 10){
-		        		if (val === 'Correct') {
-			        		score++;
-			        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
-			        	}else{
-			        		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
-			        	};
-		        	}else{
-		        		if (val === 'Correct') {
-			        		score++;
-			        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
-			        	}else{
-			        		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
-			        	};
-		        	}
+		 //        	if(count < 10){
+		 //        		if (val === 'Correct') {
+			//         		score++;
+			//         		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+			//         	}else{
+			//         		$('.summary-section ul:eq(0)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
+			//         	};
+		 //        	}else{
+		 //        		if (val === 'Correct') {
+			//         		score++;
+			//         		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="correct">'+val+'</span></li>');
+			//         	}else{
+			//         		$('.summary-section ul:eq(1)').append('<li>Question '+key+': <span class="incorrect">'+val+'</span></li>');
+			//         	};
+		 //        	}
 
 		        	
 
-		        }
+		 //        }
 
-		        $('.summary-section p span').html(score);
+		 //        $('.summary-section p span').html(score);
+
+		 //        $('.mod-results').fadeIn(); 
+
+		 //        $('.question .answers button').attr('disabled','true'); 
+
+			// }
+
+			if($('.summary-section table tr').length===0){
+
+				for (key in questions){
+
+					var obj = questions[key];
+
+					if(obj.status === 'Correct'){
+						score++;
+						$('.summary-section table').append("<tr><td>"+obj.question+"</td><td class='correct'>Correct</td></tr>");
+					}else{
+						$('.summary-section table').append("<tr><td>"+obj.question+"</td><td class='incorrect'>Incorrect</td></tr>");
+					}
+
+				}
+
+
+				$('.summary-section p span').html(score);
 
 		        $('.mod-results').fadeIn(); 
 
