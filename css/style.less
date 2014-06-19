@@ -151,8 +151,18 @@ li#savecall{
 	background: url(../media/images/revolade_buttons_sprite.png) -254px 52px;
 }
 
-.ui-dialog .overlay-container > ul > li, .ui-dialog .information-overlay > ul > li{
+.ui-dialog .overlay > ul, .ui-dialog .overlay > ol{
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: 360px;
+}
+
+.ui-dialog .overlay-container > ul > li{
 	margin-bottom: 10px;
+}
+
+.information-overlay > ul,.information-overlay > ul > li{
+	margin: 0;
 }
 
 .ui-dialog{
@@ -596,6 +606,7 @@ body{
 			margin-top: 25px;
 			font-size: 20px;
 			position: relative;
+			height: 533px;
 
 			.center-img{
 				width: 80%;
