@@ -5,6 +5,8 @@
 @revoladeBlue : #4a2a94;
 @revoladeGrey : #707070;
 
+@navPos : 570px;
+
 
 // mixins
 
@@ -329,7 +331,6 @@ body{
 			list-style: none;
 			position: absolute;
 			left: 865px;
-			top: 500px;
 
 			li{
 				height: 15px;
@@ -343,6 +344,30 @@ body{
 			li.active{
 				background: @revoladeRed;
 			}
+		}
+
+		ul.two{
+			top: @navPos;
+		}
+
+		ul.three{
+			top: @navPos - 20;
+		}
+
+		ul.four{
+			top: @navPos - 40;
+		}
+
+		ul.five{
+			top: @navPos - 60;
+		}
+
+		ul.six{
+			top: @navPos - 80;
+		}
+
+		ul.seven{
+			top: @navPos - 100;
 		}
 	}
 
