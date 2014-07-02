@@ -123,6 +123,16 @@
        url('../media/fonts/HelveticaNeueLTStd-LtCn.svg#Helvetica-Condensed') format('svg'); /* Legacy iOS */
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
 
 // styles
 
@@ -164,7 +174,7 @@ li#savecall{
 }
 
 .information-overlay > ul,.information-overlay > ul > li{
-	margin: 0;
+	// margin: 0;
 }
 
 .ui-dialog{
@@ -207,6 +217,7 @@ li#savecall{
 		li{
 			color: @revoladeBlue;
 			line-height: 25px;
+			margin: 10px 0;
 		
 
 			span{
@@ -677,6 +688,10 @@ body{
 
 				ul{
 					margin: 0;
+
+					li{
+						line-height: 20px;
+					}
 				}
 				
 				tr:first-child{
@@ -690,7 +705,7 @@ body{
 					padding-left: 12px;
 					border-left: solid 1px @revoladeRed;
 					border-right: solid 1px @revoladeRed;
-					padding:10px 0;
+					padding:10px 0 10px 10px;
 				}
 
 				tr{
@@ -803,6 +818,17 @@ body{
 			background:url(../media/images/revolade_buttons_sprite.png);
 			background-position: -175px 104px;
 		}
+
+		.information-img-button{
+			height:35px;
+			width:36px;
+			position: absolute;
+			top: 640px;
+			left: 845px;
+			background:url(../media/images/revolade_buttons_sprite.png);
+			background-position: -175px 104px;
+			z-index: 9999999999;
+		}
 	}
 
 	
@@ -870,6 +896,47 @@ body{
 		.but4{
 			top: 370px;
 			right: 160px;
+		}
+
+	}
+
+
+	.mod2-home-slide{
+		.but1{
+			top: 270px;
+			left: 160px;
+		}
+		.but2{
+			top: 270px;
+			right: 160px;
+		}
+		.but3{
+			top: 350px;
+			left: 160px;
+		}
+		.but4{
+			top: 350px;
+			right: 160px;
+		}
+		.but5{
+			top: 430px;
+			left: 160px;
+		}
+		.but6{
+			top: 430px;
+			right: 160px;
+		}
+		.but7{
+			top:510px;
+			left: 160px;
+		}
+		.but8{
+			top:510px;
+			right: 160px;
+		}
+		.but9{
+			top: 590px;
+			left: 160px;
 		}
 
 	}
