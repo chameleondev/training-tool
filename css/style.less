@@ -1181,6 +1181,36 @@ body{
 	}
 }
 
+.body-container{
+	.slide-title{
+		position: relative;
+		bottom: 10px;
+		opacity: 0;
+		transition: 1s all;
+		-webkit-transition: 1s all;
+	}
+
+	.content-container{
+		position: relative;
+		left: 10px;
+		opacity: 0;
+		transition: 1s all;
+		-webkit-transition: 1s all;
+	}
+}
+
+.body-container>div:nth-child(2){
+	.slide-title{
+		bottom: 0;
+		opacity: 1;
+	}
+
+	.content-container{
+		left: 0;
+		opacity: 1;
+	}
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
